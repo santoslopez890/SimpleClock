@@ -45,8 +45,16 @@ public class SimpleClock extends JFrame {
     
             dateLabel=new JLabel();
             dateLabel.setFont(new Font("Ink Free",Font.BOLD,30));
+
             twelveTo24.addItemListener(changeTwelveToTwentyFourAndBack);
+            twelveTo24.setFont(new Font("Ink Free",Font.BOLD,30));
+            twelveTo24.setForeground(Color.BLUE);
+
+
+
             gmtest.addItemListener(changeToGmtAndBack);
+            gmtest.setFont(new Font("Ink Free",Font.BOLD,30));
+            gmtest.setForeground(Color.BLUE);
     
             this.add(timeLabel);
             this.add(dayLabel);
@@ -60,8 +68,8 @@ public class SimpleClock extends JFrame {
 
     ItemListener changeTwelveToTwentyFourAndBack = new ItemListener() {
         public void itemStateChanged(ItemEvent event) {
-            int state = event.getStateChange();
-            if (state == ItemEvent.SELECTED) {
+            int stateToChange = event.getStateChange();
+            if (stateToChange == event.SELECTED) {
                 twelveTo24.setText("Change to Standard time");
                 timeFormat = new SimpleDateFormat("  HH:mm:ss a  ");
             } else {
@@ -73,8 +81,8 @@ public class SimpleClock extends JFrame {
 
     ItemListener changeToGmtAndBack = new ItemListener() {
         public void itemStateChanged(ItemEvent event) {
-            int state = event.getStateChange();
-            if(state == ItemEvent.SELECTED){
+            int stateToChange = event.getStateChange();
+            if(stateToChange == event.SELECTED){
                 gmtest.setText("Change to EST");
                 timeFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
             } else {
